@@ -12,12 +12,39 @@ os.environ["SDL_MOUSEDRV"] = "TSLIB"
 pygame.init()
 pygame.mouse.set_visible(0)
 
+class Button:
+    def __init__(self,x,y,h,w,handler=None):
+        self.x = x
+        self.y = y
+        self.h = h
+        self.w = w
+        self.handler = handler
+        self.render()
+    
+    def render(self):
+        font=pygame.font.Font(None,42)
+        label=font.render(str(text), 1, (colour))
+        screen.blit(label,(xpo,ypo))
+        pygame.draw.rect(screen, blue, (xpo-border,ypo-border,width,height),3)
+
+    def center(self):
+        return ((self.x + self.w/2),(self.y + self.h/2))
+    
+    def hit_test(self,x,y):
+        if self.x <= x <= (self.x+self.w) and self.y <= y <= (self.y + self.h):
+            self.handler()
+            return True
+        else:
+            return False
+
+
 # define function for printing text in a specific place with a specific width and height with a specific colour and border
-def make_button(text, xpo, ypo, height, width, colour):
+def make_button(text, xpo, ypo, height, width, colour,border=10,handler=None):
     font=pygame.font.Font(None,42)
     label=font.render(str(text), 1, (colour))
     screen.blit(label,(xpo,ypo))
-    pygame.draw.rect(screen, blue, (xpo-10,ypo-10,width,height),3)
+    pygame.draw.rect(screen, blue, (xpo-border,ypo-border,width,height),3)
+    return Rect(xpo,ypo,height,width)
 
 # define function for printing text in a specific place with a specific colour
 def make_label(text, xpo, ypo, fontsize, colour):
