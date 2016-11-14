@@ -13,7 +13,7 @@ pygame.init()
 pygame.mouse.set_visible(0)
 
 class Button:
-    def __init__(self,x,y,h,w,handler=None):
+    def __init__(self,x,y,w,h,handler=None):
         self.x = x
         self.y = y
         self.h = h
@@ -32,7 +32,8 @@ class Button:
     
     def hit_test(self,x,y):
         if self.x <= x <= (self.x+self.w) and self.y <= y <= (self.y + self.h):
-            self.handler()
+            if self.handler != None:
+                self.handler()
             return True
         else:
             return False
@@ -51,36 +52,6 @@ def make_label(text, xpo, ypo, fontsize, colour):
     font=pygame.font.Font(None,fontsize)
     label=font.render(str(text), 1, (colour))
     screen.blit(label,(xpo,ypo))
-
-# define function that checks for touch location
-def on_touch():
-    # get the position that was touched
-    touch_pos = (pygame.mouse.get_pos() [0], pygame.mouse.get_pos() [1])
-    #  x_min                 x_max   y_min                y_max
-    # button 1 event
-    if 30 <= touch_pos[0] <= 240 and 30 <= touch_pos[1] <=85:
-            button(1)
-    # button 2 event
-    if 260 <= touch_pos[0] <= 470 and 30 <= touch_pos[1] <=85:
-            button(2)
-    # button 3 event
-    if 30 <= touch_pos[0] <= 240 and 105 <= touch_pos[1] <=160:
-            button(3)
-    # button 4 event
-    if 260 <= touch_pos[0] <= 470 and 105 <= touch_pos[1] <=160:
-            button(4)
-    # button 5 event
-    if 30 <= touch_pos[0] <= 240 and 180 <= touch_pos[1] <=235:
-            button(5)
-    # button 6 event
-    if 260 <= touch_pos[0] <= 470 and 180 <= touch_pos[1] <=235:
-            button(6)
-    # button 7 event
-    if 30 <= touch_pos[0] <= 240 and 255 <= touch_pos[1] <=310:
-            button(7)
-    # button 8 event
-    if 260 <= touch_pos[0] <= 470 and 255 <= touch_pos[1] <=310:
-            button(8)
 
 # Define each button press action
 def button(number):
@@ -132,30 +103,56 @@ orange  = (255, 127,   0)
 # Set up the base menu you can customize your menu with the colors above
 
 #set size of the screen
-size = width, height = 480, 320
+size = width, height = 320, 240
+border = 10
 screen = pygame.display.set_mode(size)
 
 # Background Color
 screen.fill(black)
 
 # Outer Border
-pygame.draw.rect(screen, blue, (0,0,480,320),10)
+pygame.draw.rect(screen, blue, (0,0,width,height),10)
 
-# Buttons and labels
-# First Row
-make_button("Menu Item 1", 30, 30, 55, 210, blue)
-make_button("Menu Item 2", 260, 30, 55, 210, blue)
-# Second Row
-make_button("Menu Item 3", 30, 105, 55, 210, blue)
-make_button("Menu item 4", 260, 105, 55, 210, blue)
-# Third Row
-make_button("Menu item 5", 30, 180, 55, 210, blue)
-make_button("Menu item 6", 260, 180, 55, 210, blue)
-# Fourth Row
-make_button("Menu item 7", 30, 255, 55, 210, blue)
-make_button("Menu item 8", 260, 255, 55, 210, blue)
+button_width = (width - 4*border)/2
+button_height = (height - 4*border)/4
+pad = width/16
+nRows = 4
+nCols = 2
+
+buttons = []
+def dummy_function(n):
+    print "Button %d pushed"%(n)
+for row in range(0,nRows):
+    for col in range(,nCols):
+        b = Button(pad*(col+1)+button_width*col,pad*(row+1)+button_height*row,button_width, button_height, dummy_function)
+        buttons.append(b)
+
+# # Buttons and labels
+# # First Row
+# make_button("Menu Item 1", 30, 30, 55, 210, blue)
+# make_button("Menu Item 2", 260, 30, 55, 210, blue)
+# # Second Row
+# make_button("Menu Item 3", 30, 105, 55, 210, blue)
+# make_button("Menu item 4", 260, 105, 55, 210, blue)
+# # Third Row
+# make_button("Menu item 5", 30, 180, 55, 210, blue)
+# make_button("Menu item 6", 260, 180, 55, 210, blue)
+# # Fourth Row
+# make_button("Menu item 7", 30, 255, 55, 210, blue)
+# make_button("Menu item 8", 260, 255, 55, 210, blue)
 
 # While loop to manage touch screen inputs
+
+
+# define function that checks for touch location
+def on_touch():
+    # get the position that was touched
+    touchx,touchy = (pygame.mouse.get_pos() [0], pygame.mouse.get_pos() [1])
+    for b in buttons:
+        b.hit_test(touchx,touchy)
+
+
+
 while 1:
     for event in pygame.event.get():
         if event.type == pygame.MOUSEBUTTONDOWN:
@@ -163,7 +160,7 @@ while 1:
             pos = (pygame.mouse.get_pos() [0], pygame.mouse.get_pos() [1])
             print pos #for checking
             pygame.draw.circle(screen, white, pos, 2, 0) #for debugging purposes - adds a small dot where the screen is pressed
-            on_click()
+            on_touch()
 
 #ensure there is always a safe way to end the program if the touch screen fails
 
