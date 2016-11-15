@@ -83,7 +83,7 @@ except:
 #set size of the screen
 width = config["width"]
 height = config["height"]
-size = (height, width)
+size = (width, height)
 screen = pygame.display.set_mode(size)
 
 # Background Color
