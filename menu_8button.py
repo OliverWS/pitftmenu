@@ -13,6 +13,7 @@ pygame.font.init()
 pygame.display.init()
 
 pygame.mouse.set_visible(0)
+border = 10
 
 #colors     R    G    B
 white   = (255, 255, 255)
@@ -40,8 +41,8 @@ class Button:
     def render(self):
         font=pygame.font.Font(None,42)
         label=font.render(str(self.text), 1, (self.colour))
-        screen.blit(label,(xpo,ypo))
-        pygame.draw.rect(screen, blue, (xpo-border,ypo-border,width,height),3)
+        screen.blit(label,(self.x,self.y))
+        pygame.draw.rect(screen, blue, (self.x-border,self.y-border,self.width,self.height),3)
 
     def center(self):
         return ((self.x + self.w/2),(self.y + self.h/2))
@@ -83,7 +84,6 @@ except:
 width = config["width"]
 height = config["height"]
 size = (width, height)
-border = 10
 screen = pygame.display.set_mode(size)
 
 # Background Color
