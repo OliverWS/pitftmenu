@@ -1,16 +1,15 @@
-import sys, pygame
+#!/usr/bin/env python
+import sys, os, time, subprocess, commands, pygame
 from pygame.locals import *
-import time
-import subprocess
-import os
 from subprocess import *
-import json
 os.environ["SDL_FBDEV"] = "/dev/fb1"
 os.environ["SDL_MOUSEDEV"] = "/dev/input/touchscreen"
 os.environ["SDL_MOUSEDRV"] = "TSLIB"
 
-# Initialize pygame and hide mouse
-pygame.init()
+# Initialize pygame modules individually (to avoid ALSA errors) and hide mouse
+pygame.font.init()
+pygame.display.init()
+
 pygame.mouse.set_visible(0)
 
 #colors     R    G    B
