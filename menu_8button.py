@@ -59,14 +59,14 @@ class Button:
 
 # Set up the base menu you can customize your menu with the colors above
 btn_config = [
-    {"label":"Button 1","handler":"sudo raspi-config", "colour":[255,0,0]},
-    {"label":"Button 2","handler":"sudo raspi-config", "colour":[255,0,0]},
-    {"label":"Button 3","handler":"sudo raspi-config", "colour":[255,0,0]},
-    {"label":"Button 4","handler":"sudo raspi-config", "colour":[255,0,0]},
-    {"label":"Button 5","handler":"sudo raspi-config", "colour":[255,0,0]},
-    {"label":"Button 6","handler":"sudo raspi-config", "colour":[255,0,0]},
-    {"label":"Button 7","handler":"sudo raspi-config", "colour":[255,0,0]},
-    {"label":"Button 8","handler":"sudo raspi-config", "colour":[255,0,0]},
+    {"label":"Button 1","handler":"echo 'Button 1'", "colour":[255,0,0]},
+    {"label":"Button 2","handler":"echo 'Button 2'", "colour":[255,0,0]},
+    {"label":"Button 3","handler":"echo 'Button 3'", "colour":[255,0,0]},
+    {"label":"Button 4","handler":"echo 'Button 4'", "colour":[255,0,0]},
+    {"label":"Button 5","handler":"echo 'Button 5'", "colour":[255,0,0]},
+    {"label":"Button 6","handler":"echo 'Button 6'", "colour":[255,0,0]},
+    {"label":"Button 7","handler":"echo 'Button 7'", "colour":[255,0,0]},
+    {"label":"Button 8","handler":"echo 'Button 8'", "colour":[255,0,0]},
 ]
 config = {
     "width":320,
