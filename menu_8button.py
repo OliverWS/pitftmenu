@@ -75,6 +75,9 @@ config = {
 try:
     with open("menu_config.json","r") as f:
         config = json.load(f)
+except:
+    print "Error loading config"
+        
 #set size of the screen
 width = config["width"]
 height = config["height"]
