@@ -11,7 +11,7 @@ os.environ["SDL_MOUSEDRV"] = "TSLIB"
 pygame.font.init()
 pygame.display.init()
 
-pygame.mouse.set_visible(0)
+pygame.mouse.set_visible(1)
 border = 10
 
 #colors     R    G    B
