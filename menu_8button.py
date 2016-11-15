@@ -57,14 +57,14 @@ class Button:
 
 # Set up the base menu you can customize your menu with the colors above
 btn_config = [
-    {"label":"Button 1","handler":"sudo raspi-config", colour=[255,0,0]},
-    {"label":"Button 2","handler":"sudo raspi-config", colour=[255,0,255]},
-    {"label":"Button 3","handler":"sudo raspi-config", colour=[255,0,0]},
-    {"label":"Button 4","handler":"sudo raspi-config", colour=[255,0,255]},
-    {"label":"Button 5","handler":"sudo raspi-config", colour=[255,0,0]},
-    {"label":"Button 6","handler":"sudo raspi-config", colour=[255,0,255]},
-    {"label":"Button 7","handler":"sudo raspi-config", colour=[255,0,0]},
-    {"label":"Button 8","handler":"sudo raspi-config", colour=[255,0,255]},
+    {"label":"Button 1","handler":"sudo raspi-config", "colour":[255,0,0]},
+    {"label":"Button 2","handler":"sudo raspi-config", "colour":[255,0,0]},
+    {"label":"Button 3","handler":"sudo raspi-config", "colour":[255,0,0]},
+    {"label":"Button 4","handler":"sudo raspi-config", "colour":[255,0,0]},
+    {"label":"Button 5","handler":"sudo raspi-config", "colour":[255,0,0]},
+    {"label":"Button 6","handler":"sudo raspi-config", "colour":[255,0,0]},
+    {"label":"Button 7","handler":"sudo raspi-config", "colour":[255,0,0]},
+    {"label":"Button 8","handler":"sudo raspi-config", "colour":[255,0,0]},
 ]
 config = {
     "width":320,
