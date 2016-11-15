@@ -42,7 +42,7 @@ class Button:
         font=pygame.font.Font(None,42)
         label=font.render(str(self.text), 1, (self.colour))
         screen.blit(label,(self.x,self.y))
-        pygame.draw.rect(screen, blue, (self.x-border,self.y-border,self.width,self.height),3)
+        pygame.draw.rect(screen, blue, (self.x-border,self.y-border,self.w,self.h),3)
 
     def center(self):
         return ((self.x + self.w/2),(self.y + self.h/2))
