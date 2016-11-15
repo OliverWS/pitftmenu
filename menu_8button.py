@@ -123,7 +123,6 @@ while 1:
             print "screen pressed" #for debugging purposes
             pos = (pygame.mouse.get_pos() [0], pygame.mouse.get_pos() [1])
             print pos #for checking
-            pygame.draw.circle(screen, white, pos, 10, 0) #for debugging purposes - adds a small dot where the screen is pressed
             on_touch()
         if event.type == KEYDOWN:
             if event.key == K_ESCAPE:
