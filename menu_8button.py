@@ -76,7 +76,9 @@ try:
     with open("menu_config.json","r") as f:
         config = json.load(f)
 #set size of the screen
-size = width, height = config["width"], config["height"]
+width = config["width"]
+height = config["height"]
+size = (width, height)
 border = 10
 screen = pygame.display.set_mode(size)
 
