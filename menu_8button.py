@@ -48,6 +48,7 @@ class Button:
     
     def hit_test(self,x,y):
         if self.x <= x <= (self.x+self.w) and self.y <= y <= (self.y + self.h):
+            print "Button pressed: " + self.text + "!"
             if self.handler != None:
                 self.handler()
             return True
