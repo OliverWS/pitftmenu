@@ -7,6 +7,8 @@ os.environ["SDL_MOUSEDEV"] = "/dev/input/touchscreen"
 os.environ["SDL_MOUSEDRV"] = "TSLIB"
 
 # Initialize pygame modules individually (to avoid ALSA errors) and hide mouse
+pygame.init()
+
 pygame.font.init()
 pygame.display.init()
 
