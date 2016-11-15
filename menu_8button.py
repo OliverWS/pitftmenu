@@ -105,7 +105,7 @@ n = 0
 
 
 for row in range(0,nRows):
-    for col in range(,nCols):            
+    for col in range(0,nCols):            
         b = Button(pad*(col+1)+button_width*col,pad*(row+1)+button_height*row,button_width, button_height,config[n]["label"],config[n]["colour"],lambda: os.system(config[n]) )
         buttons.append(b)
         n=n+1
