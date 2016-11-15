@@ -12,7 +12,7 @@ pygame.font.init()
 pygame.display.init()
 
 pygame.mouse.set_visible(1)
-border = 10
+border = 1
 
 #colors     R    G    B
 white   = (255, 255, 255)
