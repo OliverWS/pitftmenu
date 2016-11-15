@@ -92,8 +92,8 @@ screen.fill(black)
 # Outer Border
 pygame.draw.rect(screen, blue, (0,0,width,height),10)
 pad = width/16
-button_width = (width - pad*2 - 4*border)/2
-button_height = (height - pad*2 - 4*border)/4
+button_width = (width - 4*border)/2
+button_height = (height - 4*border)/4
 nRows = 4
 nCols = 2
 
